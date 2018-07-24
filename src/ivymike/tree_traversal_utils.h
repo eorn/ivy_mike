@@ -27,7 +27,7 @@
 #include <set>
 #include <cassert>
 #include <stdint.h>
-#include <boost/tr1/unordered_set.hpp>
+#include <boost/unordered_set.hpp>
 #include <memory>
 #include "tree_parser.h"
 
@@ -403,8 +403,8 @@ class node_level_assignment {
 
     std::vector<std::pair<int,lnode *> > m_level_mapping;
 
-    std::tr1::unordered_set<lnode *>m_mix;
-    std::tr1::unordered_set<lnode *>m_closed;
+    boost::unordered_set<lnode *>m_mix;
+    boost::unordered_set<lnode *>m_closed;
 
 
 
@@ -413,12 +413,12 @@ class node_level_assignment {
 
 //        std::cerr << "round " << level << " " << m_mix.size() << "\n";
 
-        std::tr1::unordered_set<lnode *> cand;
+        boost::unordered_set<lnode *> cand;
 
         std::vector<lnode *>rm;
 
 
-        for( std::tr1::unordered_set<lnode *>::iterator it = m_mix.begin(); it != m_mix.end(); ++it ) {
+        for( boost::unordered_set<lnode *>::iterator it = m_mix.begin(); it != m_mix.end(); ++it ) {
         	lnode *n = *it;
 //        	std::cout << "mix: " << level << " " << n << " " << n->next << "\n";
 
